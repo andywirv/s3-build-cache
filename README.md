@@ -1,14 +1,28 @@
+## Synopsis
 Create container that runs NGXINX as a caching proxy for AWS S3
 
-Build with 
+# Example
+
+# Motivation
+S3 is a realiable and cheap storage solution but download speeds can slow down builds especially whilst developing locally. Adding an intermediary cache that can handle large files speeds things up
+
+# Installation
+Clone the git repo
 ``` Shell
+git clone git@github.com:andywirv/s3-build-cache.git
+```
+
+Build docker container with 
+``` Shell
+cd s3-build-cache
 docker build -t nginx-content .
 ```
 
-Run with 
+Run container with 
 ``` Shell
 docker run --name s3_proxy -d -p 8080:80 nginx-content
 ```
+N.B This assumes that you do not already have something bound to port 8080 on your docker host. If your docker host is a virtual machine you will need to port map 8080 on the guest to 8080 on the host for the example request below to work
 
 Access Files via
 ```
