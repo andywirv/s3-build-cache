@@ -2,7 +2,7 @@ Create container that runs NGXINX as a caching proxy for AWS S3
 
 Build with 
 ``` Shell
-build -t nginx-content .
+docker build -t nginx-content .
 ```
 
 Run with 
