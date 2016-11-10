@@ -1,4 +1,4 @@
-Create container that runs NGXINX as a caching proxy
+Create container that runs NGXINX as a caching proxy for AWS S3
 
 Build with 
 ``` Shell
