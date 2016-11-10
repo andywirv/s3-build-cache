@@ -1,10 +1,19 @@
 Create container that runs NGXINX as a caching proxy
 
-Build with build -t nginx-content .
-Run with docker run --name s3_proxy -d -p 8080:80 nginx-content
+Build with 
+``` Shell
+build -t nginx-content .
+```
 
-Access Files via 
+Run with 
+``` Shell
+docker run --name s3_proxy -d -p 8080:80 nginx-content
+```
+
+Access Files via
+```
 http://localhost:8080/proxy_s3_file/[AWS S3 bucket name]]/[original file or path to file in AWS]
+```
 
 Example Response Headers. X-Cached: indicates HIT/MISS
 ``` Shell
@@ -19,8 +28,13 @@ HTTP/1.1 200 OK
 < X-Cached: HIT
 < Accept-Ranges: bytes
 ```
-
+``` Shell
 ADD config/proxy.conf/ /etc/nginx/conf.d/default.conf
-config/proxy.conf/ overwrites the default config. Modify proxy.conf with your settings. N.B This is currently hardcoded to use the eu-west-1 AWS region.
-Modify  set $s3_bucket        '$1.s3-eu-west-1.amazonaws.com';
+```
+
+config/proxy.conf/ overwrites the default/package NGINX config. Modify proxy.conf with your settings. N.B This is currently hardcoded to use the *eu-west-1* AWS region.
+Modify  
+``` Shell
+set $s3_bucket        '$1.s3-eu-west-1.amazonaws.com';
+```
 
