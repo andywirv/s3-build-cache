@@ -3,9 +3,11 @@ Create container that runs NGXINX as a caching proxy for AWS S3
 
 # Example
 A direct request to AWS S3
+
 https://s3-build-cache-example.s3-eu-west-1.amazonaws.com/LoremIpsum.txt
 
 A proxied request that should be cached locally after first request
+
 http://localhost:8080/proxy_s3_file/3-build-cache-example/LoremIpsum.txt
 
 http://[$HOST_OR_IP]:8080/proxy_s3_file/[$AWS_BUCKET]/[$FILENAME]
