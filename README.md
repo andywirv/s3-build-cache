@@ -14,9 +14,10 @@ http://[$HOST_OR_IP]:8080/proxy_s3_file/[$AWS_BUCKET]/[$FILENAME]
 
 [$AWS_BUCKET] - The name of your AWS Bucket. This is either the portion of the hostname before '.s3-eu-west-1.amazonaws.com' or the first part of the path. In the example provided:
 
-https://**s3-build-cache-example**.s3-eu-west-1.amazonaws.com/LoremIpsum.txt
+The **s3-build-cache-example** in: 
+https://s3-build-cache-example.s3-eu-west-1.amazonaws.com/LoremIpsum.txt
 or
-https://s3-eu-west-1.amazonaws.com/**s3-build-cache-example**/LoremIpsum.txt
+https://s3-eu-west-1.amazonaws.com/s3-build-cache-example/LoremIpsum.txt
 
 [$FILENAME] - The filename including path to AWS S3 object
 https://s3-eu-west-1.amazonaws.com/s3-build-cache-example/**LoremIpsum.txt**
