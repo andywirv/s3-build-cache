@@ -8,7 +8,7 @@ https://s3-build-cache-example.s3-eu-west-1.amazonaws.com/LoremIpsum.txt
 
 A proxied request that should be cached locally after first request
 
-http://127.0.0.1:8080/proxy_s3_file/3-build-cache-example/LoremIpsum.txt
+http://127.0.0.1:8080/proxy_s3_file/s3-build-cache-example/LoremIpsum.txt
 
 http://[$HOST_OR_IP]:8080/proxy_s3_file/[$AWS_BUCKET]/[$FILENAME]
 
