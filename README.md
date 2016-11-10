@@ -12,17 +12,17 @@ http://127.0.0.1:8080/proxy_s3_file/s3-build-cache-example/LoremIpsum.txt
 
 http://[$HOST_OR_IP]:8080/proxy_s3_file/[$AWS_BUCKET]/[$FILENAME]
 
-[$HOST_OR_IP] - In a standard local setup this will be localhost|127.0.0.1. Remote Docker installs should give you a hostname or IP to use
+*[$HOST_OR_IP]* - In a standard local setup this will be localhost|127.0.0.1. Remote Docker installs should give you a hostname or IP to use
 
-[$AWS_BUCKET] - The name of your AWS Bucket. This is either the portion of the hostname before '.s3-eu-west-1.amazonaws.com' or the first part of the path. In the example provided:
+*[$AWS_BUCKET]* - The name of your AWS Bucket. This is either the portion of the hostname before '.s3-eu-west-1.amazonaws.com' or the first part of the path. In the example provided:
 
 The **s3-build-cache-example** in: 
 https://s3-build-cache-example.s3-eu-west-1.amazonaws.com/LoremIpsum.txt
 or
 https://s3-eu-west-1.amazonaws.com/s3-build-cache-example/LoremIpsum.txt
 
-[$FILENAME] - The filename including path to AWS S3 object
-https://s3-eu-west-1.amazonaws.com/s3-build-cache-example/**LoremIpsum.txt**
+*[$FILENAME]* - The **LoremIpsum.txt** in :
+https://s3-eu-west-1.amazonaws.com/s3-build-cache-example/LoremIpsum.txt
 
 
 # Motivation
