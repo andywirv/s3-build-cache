@@ -1,10 +1,29 @@
-## Synopsis
+## Description
 Create container that runs NGXINX as a caching proxy for AWS S3
 
 # Example
+A direct request to AWS S3
+https://s3-build-cache-example.s3-eu-west-1.amazonaws.com/LoremIpsum.txt
+
+A proxied request that should be cached locally after first request
+http://localhost:8080/proxy_s3_file/3-build-cache-example/LoremIpsum.txt
+
+http://[$HOST_OR_IP]:8080/proxy_s3_file/[$AWS_BUCKET]/[$FILENAME]
+
+[$HOST_OR_IP] - In a standard local setup this will be localhost|127.0.0.1. Remote Docker installs should give you a hostname or IP to use
+
+[$AWS_BUCKET] - The name of your AWS Bucket. This is either the portion of the hostname before '.s3-eu-west-1.amazonaws.com' or the first part of the path. In the example provided:
+
+https://**s3-build-cache-example**.s3-eu-west-1.amazonaws.com/LoremIpsum.txt
+or
+https://s3-eu-west-1.amazonaws.com/**s3-build-cache-example**/LoremIpsum.txt
+
+[$FILENAME] - The filename including path to AWS S3 object
+https://s3-eu-west-1.amazonaws.com/s3-build-cache-example/**LoremIpsum.txt**
+
 
 # Motivation
-S3 is a realiable and cheap storage solution but download speeds can slow down builds especially whilst developing locally. Adding an intermediary cache that can handle large files speeds things up
+S3 is a realiable and cheap storage solution but download times can slow down builds especially whilst developing locally. Adding an intermediary cache that can handle large files *should* speed things up. Using aws cli etc may yield better results depending on the use case
 
 # Installation
 Clone the git repo
@@ -46,7 +65,7 @@ HTTP/1.1 200 OK
 ADD config/proxy.conf/ /etc/nginx/conf.d/default.conf
 ```
 
-config/proxy.conf/ overwrites the default/package NGINX config. Modify proxy.conf with your settings. N.B This is currently hardcoded to use the *eu-west-1* AWS region.
+config/proxy.conf/ overwrites the default/package NGINX config. Modify proxy.conf with your settings. N.B This is currently hardcoded to use the **eu-west-1** AWS region.
 Modify  
 ``` Shell
 set $s3_bucket        '$1.s3-eu-west-1.amazonaws.com';
